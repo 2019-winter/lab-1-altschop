@@ -14,7 +14,7 @@ jupyter:
 ---
 
 # Name(s)
-**PUT YOUR FULL NAME(S) HERE**
+Alex Tschopp
 
 
 **Instructions:** This is an individual assignment, but you may discuss your code with your neighbors.
@@ -46,23 +46,24 @@ For the following exercises please read the Python appendix in the Marsland text
 ## Exercise 1
 
 ```python
-# YOUR SOLUTION HERE
-#a=1000
-print('this is my answer',a+1) 
+import numpy as np
+a = np.ones((6, 4), int) * 2
+print(a)
 ```
 
 ## Exercise 2
 
 ```python
-# YOUR SOLUTION HERE
-a=2000
+b = np.ones((6, 4), int) 
+np.fill_diagonal(b, 3)
+print(b)
 ```
 
 ## Exercise 3
 
-```python
-# YOUR SOLUTION HERE
-```
+
+The '*' operator multiplies the arrays 'a' and 'b' element-wise while the function np.dot(a,b) requires the number of columns of 'a' to be equal to the number of rows of 'b'. The element-wise multiplication works because the matrices have the same shape and the dot product does not work because the shapes of the matrices are incompatible.
+
 
 ## Exercise 4
 
@@ -87,10 +88,6 @@ a=2000
 ```python
 # YOUR SOLUTION HERE
 ```
-
-## Excercises 8-???
-While the Marsland book avoids using another popular package called Pandas, we will use it at times throughout this course. Please read and study [10 minutes to Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html) before proceeding to any of the exercises below.
-
 
 ## Exercise 8
 Repeat exercise A.1 from Marsland, but create a Pandas DataFrame instead of a NumPy array.
