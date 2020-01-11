@@ -48,7 +48,6 @@ For the following exercises please read the Python appendix in the Marsland text
 ```python
 import numpy as np
 a = np.ones((6, 4), int) * 2
-print(a)
 ```
 
 ## Exercise 2
@@ -56,7 +55,6 @@ print(a)
 ```python
 b = np.ones((6, 4), int) 
 np.fill_diagonal(b, 3)
-print(b)
 ```
 
 ## Exercise 3
@@ -67,54 +65,82 @@ The '*' operator multiplies the arrays 'a' and 'b' element-wise while the functi
 
 ## Exercise 4
 
-```python
-# YOUR SOLUTION HERE
-```
+
+The results of these dot products are different because the outer dimensions of the two matrices used to compute the dot products are different. Computing a dot product with shapes (4 x 6) dot (6 x 4) yields a (4 x 4) matrix while performing (6 x 4) dot (4 x 6) yields a (6 x 6) matrix.
+
 
 ## Exercise 5
 
 ```python
-# YOUR SOLUTION HERE
+def print_arr(arr):
+    print(arr)
+print_arr(a)
 ```
 
 ## Exercise 6
 
 ```python
-# YOUR SOLUTION HERE
+def random_computations(*shape):
+    arr = np.random.rand(*shape)
+    print('sum:', np.sum(arr))
+    print('mean:', np.mean(arr))
+random_computations(3,3)
 ```
 
 ## Exercise 7
 
 ```python
-# YOUR SOLUTION HERE
+def count_ones_with_loops(arr):
+    numOfOnes = 0
+    shape = arr.shape
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            if (arr[i][j] == 1):
+                numOfOnes += 1
+    return numOfOnes
+
+def count_ones_with_where(arr):
+    isOne = np.where(arr == 1)
+    return len(arr[isOne])
 ```
 
 ## Exercise 8
 Repeat exercise A.1 from Marsland, but create a Pandas DataFrame instead of a NumPy array.
 
 ```python
-# YOUR SOLUTION HERE
+import pandas as pd
+adf = pd.DataFrame(np.ones((6, 4), int) * 2)
 ```
 
 ## Exercise 9
 Repeat exercise A.2 using a DataFrame instead.
 
 ```python
-# YOUR SOLUTION HERE
+bdf = pd.DataFrame(np.ones((6,4), int))
+bdf.iloc[0,0] = 2
+bdf.iloc[1,1] = 2
+bdf.iloc[2,2] = 2
+bdf.iloc[3,3] = 2
 ```
 
 ## Exercise 10
 Repeat exercise A.3 using DataFrames instead.
 
 ```python
-# YOUR SOLUTION HERE
+# Element-wise multiplication works because they are the same shape, as before
+print(adf * bdf)
+try:
+    # Inner dimensions do not match, as was the case in A.3
+    print(adf.dot(bdf))
+except Exception as e:
+    print(e)
 ```
 
 ## Exercise 11
 Repeat exercise A.7 using a dataframe.
 
 ```python
-# YOUR SOLUTION HERE
+
 ```
 
 ## Exercises 12-14
