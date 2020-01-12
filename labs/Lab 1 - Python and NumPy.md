@@ -140,7 +140,18 @@ except Exception as e:
 Repeat exercise A.7 using a dataframe.
 
 ```python
+def count_ones_with_loops(df):
+    numOfOnes = 0
+    shape = df.shape
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            if (df.iloc[i][j] == 1):
+                numOfOnes += 1
+    return numOfOnes
 
+def count_ones_with_where(df):
+    isOne = df.where(df == 1)
+    return isOne.count().sum()
 ```
 
 ## Exercises 12-14
@@ -160,24 +171,20 @@ Notice how we have nice headers and mixed datatypes? That is one of the reasons 
 How do you select the ``name`` column without using .iloc?
 
 ```python
-## YOUR SOLUTION HERE
+titanic_df['name']
 ```
 
 ## Exercise 13
 After setting the index to ``sex``, how do you select all passengers that are ``female``? And how many female passengers are there?
 
 ```python
-## YOUR SOLUTION HERE
 titanic_df.set_index('sex',inplace=True)
+titanic_df.loc['female']
 ```
 
 ## Exercise 14
 How do you reset the index?
 
 ```python
-## YOUR SOLUTION HERE
-```
-
-```python
-
+titanic_df.reset_index()
 ```
